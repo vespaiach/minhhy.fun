@@ -1,10 +1,5 @@
 <?php
-/**
- * Navigation for the theme.
- *
- * @package sim
- */
-$categories = get_categories();
+$categories = get_categories(array('hide_empty' => true, ));
 $recent_posts = wp_get_recent_posts(array(
 	'numberposts' => 5,
 	'post_status' => 'publish',
