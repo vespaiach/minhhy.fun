@@ -1,0 +1,104 @@
+@import 'tailwindcss';
+@plugin "@tailwindcss/typography";
+@theme {
+  --font-sans: 'Oswald', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+  --font-serif: 'Newsreader', ui-serif, Georgia, Cambria, 'Times New Roman', Times, serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',
+    'Noto Color Emoji';
+  --spacing-gutter: clamp(30px, 5vw, 5rem);
+  --color-primary: #c11b25;
+}
+@layer base {
+  :root {
+    --block-hamburger-menu-height-ratio: calc(20px / 4);
+    --block-hamburger-menu-line-height: 1px;
+  }
+
+  html,
+  :host,
+  body {
+    @apply font-serif text-gray-600 bg-white;
+  }
+
+}
+
+@layer components {
+  .icon-button {
+    @apply border-none bg-transparent p-0 w-6 h-6 cursor-pointer flex items-center justify-center;
+  }
+  .text-primary {
+    @apply text-blue-700;
+  }
+  .text-primary\! {
+    @apply text-blue-700!;
+  }
+  .post-categories {
+    @apply flex gap-2 text-blue-700 list-none! p-0! m-0!;
+  }
+  .post-categories li {
+    @apply m-0! p-0!;
+  }
+  .post-categories li a {
+    @apply text-blue-500! no-underline!;
+  }
+}
+
+.hamburger-button {
+  width: 22px;
+  height: 22px;
+  background: transparent;
+  padding: 0;
+  border: solid 1px currentColor;
+  display: block;
+  position: relative;
+  cursor: pointer;
+}
+
+/* Common styles for all lines */
+.hamburger-line {
+  display: block;
+  position: absolute;
+  left: 16%;
+  width: 68%;
+  height: calc(var(--block-hamburger-menu-line-height) * 2);
+  background: currentColor;
+  border-radius: 6px;
+  transition: all 0.3s ease-in-out;
+}
+
+/* Position each line */
+.line-1 {
+  top: calc(var(--block-hamburger-menu-height-ratio) - var(--block-hamburger-menu-line-height));
+}
+
+.line-2 {
+  top: calc(var(--block-hamburger-menu-height-ratio) * 2 - var(--block-hamburger-menu-line-height));
+}
+
+.line-3 {
+  top: calc(var(--block-hamburger-menu-height-ratio) * 3 - var(--block-hamburger-menu-line-height));
+}
+
+/* When the button has the 'open' class */
+.hamburger-button.open .line-1 {
+  top: calc(var(--block-hamburger-menu-height-ratio) * 2 - var(--block-hamburger-menu-line-height));
+  transform: rotate(45deg);
+}
+
+.hamburger-button.open .line-2 {
+  opacity: 0;
+}
+
+.hamburger-button.open .line-3 {
+  top: calc(var(--block-hamburger-menu-height-ratio) * 2 - var(--block-hamburger-menu-line-height));
+  transform: rotate(-45deg);
+}
+
+.aside {
+  overflow: hidden;
+  height: 102px;
+  transition: height 0.5s ease-in;
+}
+
+.aside.open {
+  height: var(--total-height);
+}
