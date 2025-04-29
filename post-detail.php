@@ -14,7 +14,7 @@
 					echo $categories ? implode(', ', $category_links) : '';
 					?>
 				</div>
-				<h1 class="font-sans text-4xl">
+				<h1 class="font-sans text-4xl text-gray-900">
 					<?php the_title(); ?>
 				</h1>
 				<div class="font-serif text-sm">
@@ -24,7 +24,7 @@
 				</div>
 			</div>
 		</header>
-		<div class="mt-16 px-gutter w-full max-w-[768px] mx-auto"><?php the_content(); ?></div>
+		<div class="mt-16 px-gutter w-full max-w-[768px] mx-auto space-y-5"><?php the_content(); ?></div>
 		<div class="mt-16 px-gutter w-full max-w-[768px] mx-auto space-y-3">
 			<?php
 			$prev_post = get_previous_post();

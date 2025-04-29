@@ -12,8 +12,8 @@
     --color-blue-700: oklch(48.8% 0.243 264.376);
     --color-gray-200: oklch(92.8% 0.006 264.531);
     --color-gray-400: oklch(70.7% 0.022 261.325);
-    --color-gray-500: oklch(55.1% 0.027 264.364);
-    --color-gray-600: oklch(44.6% 0.03 256.802);
+    --color-gray-700: oklch(37.3% 0.034 259.733);
+    --color-gray-900: oklch(21% 0.034 264.665);
     --color-stone-100: oklch(97% 0.001 106.424);
     --color-white: #fff;
     --spacing: 0.25rem;
@@ -31,6 +31,7 @@
     --text-4xl--line-height: calc(2.5 / 2.25);
     --font-weight-semibold: 600;
     --font-weight-bold: 700;
+    --leading-tight: 1.25;
     --default-font-family: var(--font-sans);
     --default-mono-font-family: var(--font-mono);
     --spacing-gutter: clamp(30px, 5vw, 5rem);
@@ -248,6 +249,13 @@
       margin-block-end: calc(calc(var(--spacing) * 3) * calc(1 - var(--tw-space-y-reverse)));
     }
   }
+  .space-y-4 {
+    :where(& > :not(:last-child)) {
+      --tw-space-y-reverse: 0;
+      margin-block-start: calc(calc(var(--spacing) * 4) * var(--tw-space-y-reverse));
+      margin-block-end: calc(calc(var(--spacing) * 4) * calc(1 - var(--tw-space-y-reverse)));
+    }
+  }
   .space-y-5 {
     :where(& > :not(:last-child)) {
       --tw-space-y-reverse: 0;
@@ -349,8 +357,8 @@
   .text-gray-400 {
     color: var(--color-gray-400);
   }
-  .text-gray-500 {
-    color: var(--color-gray-500);
+  .text-gray-900 {
+    color: var(--color-gray-900);
   }
   .text-primary {
     color: var(--color-primary);
@@ -376,11 +384,45 @@
   :root {
     --block-hamburger-menu-height-ratio: calc(20px / 4);
     --block-hamburger-menu-line-height: 1px;
+    --font-size--small: .875rem;
+    --font-size--medium: clamp(1rem, 1rem + ((1vw - 0.2rem) * 0.588), 1.25rem);
+    --font-size--large: clamp(1.75rem, 1.75rem + ((1vw - 0.2rem) * 0.588), 2rem);
+    --font-size--x-large: clamp(2.5rem, 2.5rem + ((1vw - 0.2rem) * 1.176), 3rem);
   }
   html, :host, body {
     background-color: var(--color-white);
     font-family: var(--font-serif);
-    color: var(--color-gray-600);
+    color: var(--color-gray-700);
+  }
+  a:hover {
+    text-decoration: underline;
+  }
+  :root :where(a:where(:not(.wp-element-button)):hover) {
+    text-decoration: none;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-sans);
+    --tw-leading: var(--leading-tight);
+    line-height: var(--leading-tight);
+  }
+  h1 {
+    font-size: var(--font-size--x-large);
+  }
+  h2 {
+    font-size: var(--font-size--large);
+  }
+  h3 {
+    font-size: clamp(1.5rem, calc(1.5rem + ((1vw - 0.48rem) * 0.4808)), 1.75rem);
+  }
+  h4 {
+    font-size: clamp(1.25rem, calc(1.25rem + ((1vw - 0.48rem) * 0.4808)), 1.5rem);
+  }
+  h5 {
+    font-size: var(--font-size--medium);
+  }
+  h6 {
+    font-size: var(--font-size--small);
+    font-weight: 600;
   }
 }
 @layer components {
@@ -463,12 +505,17 @@
   syntax: "*";
   inherits: false;
 }
+@property --tw-leading {
+  syntax: "*";
+  inherits: false;
+}
 @layer properties {
   @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or ((-moz-orient: inline) and (not (color:rgb(from red r g b)))) {
     *, ::before, ::after, ::backdrop {
       --tw-space-y-reverse: 0;
       --tw-border-style: solid;
       --tw-font-weight: initial;
+      --tw-leading: initial;
     }
   }
 }

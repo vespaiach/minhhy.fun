@@ -12,43 +12,45 @@ if (!isset($recent_posts)) {
 <footer class="bg-stone-100 mt-40 py-16 space-y-18">
 	<div class="space-y-12 px-gutter w-full max-w-[768px] mx-auto">
 		<?php if (is_single()) { ?>
-		<div>
-			<p class="font-sans text-primary">MORE POSTS</p>
-			<ul class="mt-4 space-y-5">
-				<?php
-				foreach ($recent_posts as $post) { ?>
-					<li class="flex flex-col border-b border-b-gray-200 pb-4">
-						<a href="<?php echo esc_url(get_permalink($post['ID'])) ?>"><?php echo esc_html($post['post_title']) ?></a>
-						<time class="text-xs text-gray-400 font-sans" datetime="<?php echo get_the_date('c', $post['ID']); ?>"><?php echo get_the_date('M t, Y', $post['ID']); ?></time>
-					</li>
-				<?php } ?>
-			</ul>
-		</div>
-		<?php } else { ?>
 			<div>
-				<p class="font-sans text-primary">CATEGORIES</p>
-				<ul class="mt-4 space-y-1">
+				<p class="font-sans text-primary">MORE POSTS</p>
+				<ul class="mt-4 space-y-5">
 					<?php
-					foreach ($categories as $category) { ?>
-						<li>
-							<a href="<?php echo esc_url(get_category_link($category->term_id)); ?>" class="hover:underline"><?php echo esc_html($category->name); ?></a>
+					foreach ($recent_posts as $post) { ?>
+						<li class="flex flex-col border-b border-b-gray-200 pb-4">
+							<a class="no-underline hover:underline text-gray-900"
+								 href="<?php echo esc_url(get_permalink($post['ID'])) ?>"><?php echo esc_html($post['post_title']) ?></a>
+							<time class="text-xs text-gray-400 font-sans"
+										datetime="<?php echo get_the_date('c', $post['ID']); ?>"><?php echo get_the_date('M t, Y', $post['ID']); ?></time>
 						</li>
 					<?php } ?>
 				</ul>
 			</div>
 		<?php } ?>
 		<div>
+			<p class="font-sans text-primary">CATEGORIES</p>
+			<ul class="mt-4 space-y-1">
+				<?php
+				foreach ($categories as $category) { ?>
+					<li>
+						<a class="no-underline hover:underline"
+							 href="<?php echo esc_url(get_category_link($category->term_id)); ?>"><?php echo esc_html($category->name); ?></a>
+					</li>
+				<?php } ?>
+			</ul>
+		</div>
+		<div>
 			<p class="font-sans text-primary">ABOUT</p>
 			<ul class="mt-4 space-y-1">
 				<li>
-					<a href="https://example.com" class="hover:underline">My, Myself & I</a>
+					<a class="no-underline hover:underline" href="https://example.com" class="hover:underline">My, Myself & I</a>
 				</li>
 				<li>
-					<a href="https://example.com" class="hover:underline">Contact</a>
+					<a class="no-underline hover:underline" href="https://example.com">Contact</a>
 				</li>
 			</ul>
 		</div>
-		
+
 		<div class="flex justify-between items-center">
 			<div class="flex gap-2 items-center">
 				<a href="/">

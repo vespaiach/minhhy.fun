@@ -13,12 +13,57 @@
   :root {
     --block-hamburger-menu-height-ratio: calc(20px / 4);
     --block-hamburger-menu-line-height: 1px;
+    --font-size--small: .875rem;
+    --font-size--medium: clamp(1rem, 1rem + ((1vw - 0.2rem) * 0.588), 1.25rem);
+    --font-size--large: clamp(1.75rem, 1.75rem + ((1vw - 0.2rem) * 0.588), 2rem);
+    --font-size--x-large: clamp(2.5rem, 2.5rem + ((1vw - 0.2rem) * 1.176), 3rem);
   }
 
   html,
   :host,
   body {
-    @apply font-serif text-gray-600 bg-white;
+    @apply font-serif text-gray-700 bg-white;
+  }
+  a:hover {
+    text-decoration: underline;
+  }
+
+  :root :where(a:where(:not(.wp-element-button)):hover) {
+    text-decoration: none;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-sans leading-tight;
+  }
+
+  h1 {
+    font-size: var(--font-size--x-large);
+  }
+
+  h2 {
+    font-size: var(--font-size--large);
+  }
+
+  h3 {
+    font-size: clamp(1.5rem, calc(1.5rem + ((1vw - 0.48rem) * 0.4808)), 1.75rem);
+  }
+
+  h4 {
+    font-size: clamp(1.25rem, calc(1.25rem + ((1vw - 0.48rem) * 0.4808)), 1.5rem);
+  }
+
+  h5 {
+    font-size: var(--font-size--medium);
+  }
+
+  h6 {
+    font-size: var(--font-size--small);
+    font-weight: 600;
   }
 }
 
