@@ -1,3 +1,7 @@
+<?php get_header(); ?>
+
+<?php get_sidebar(); ?>
+
 <main>
 	<article>
 		<header class="bg-stone-100 py-16 font-sans">
@@ -12,7 +16,7 @@
 				$category_links = array_map('category_link', $categories);
 				echo $categories ? implode(', ', $category_links) : '';
 				?>
-				<h1 class="font-sans text-4xl text-gray-900">
+				<h1 class="font-sans">
 					<?php the_title(); ?>
 				</h1>
 				<div class="font-serif text-sm">
@@ -48,3 +52,5 @@
 		</div>
 	</article>
 </main>
+
+<?php get_footer(); ?>

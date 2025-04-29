@@ -1,5 +1,5 @@
 <?php
-if (!isset($recent_posts)) {
+if (!isset($recent_posts)):
 	$recent_posts = wp_get_recent_posts(array(
 		'numberposts' => 5,
 		'post_status' => 'publish',
@@ -7,8 +7,13 @@ if (!isset($recent_posts)) {
 		'order' => 'DESC',
 	));
 	wp_reset_query();
-}
+endif;
+
+if (!isset($categories)):
+	$categories = get_categories(array('hide_empty' => true));
+endif;
 ?>
+
 <footer class="bg-stone-100 mt-40 py-16 space-y-18">
 	<div class="space-y-12 px-gutter w-full max-w-[768px] mx-auto">
 		<?php if (is_single()) { ?>
@@ -83,3 +88,6 @@ if (!isset($recent_posts)) {
 		</div>
 	</div>
 </footer>
+</body>
+
+</html>
