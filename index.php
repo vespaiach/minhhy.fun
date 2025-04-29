@@ -30,7 +30,9 @@
 		<?php
 		require get_template_directory() . '/top-bar.php';
 
-		if (is_single()) {
+		if (is_search()) {
+			require get_template_directory() . '/partial/search-form.php';
+		} else if (is_single()) {
 			require get_template_directory() . '/post-detail.php';
 		} else {
 			require get_template_directory() . '/posts.php';

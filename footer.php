@@ -43,7 +43,7 @@ if (!isset($recent_posts)) {
 			<p class="font-sans text-primary">ABOUT</p>
 			<ul class="mt-4 space-y-1">
 				<li>
-					<a class="no-underline hover:underline" href="https://example.com" class="hover:underline">My, Myself & I</a>
+					<a class="no-underline hover:underline" href="/about-me/" class="hover:underline">My, Myself & I</a>
 				</li>
 				<li>
 					<a class="no-underline hover:underline" href="https://example.com">Contact</a>

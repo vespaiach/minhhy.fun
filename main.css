@@ -22,7 +22,7 @@
   html,
   :host,
   body {
-    @apply font-serif text-gray-700 bg-white;
+    @apply font-serif text-gray-600 bg-white;
   }
   a:hover {
     text-decoration: underline;
