@@ -175,7 +175,7 @@
   }
 
   blockquote {
-    @apply my-6 ml-8 py-4 px-6 border-l-4 border-primary bg-gray-50 text-muted italic text-muted leading-normal;
+    @apply my-6 ml-8 py-4 px-6 border-l-4 border-primary bg-gray-50 text-muted italic leading-normal;
   }
 
   pre,
@@ -189,7 +189,19 @@
     @apply block p-4 overflow-x-auto mb-6;
   }
   pre code {
-    @apply border-none p-0 bg-transparent rounded-none text-sm;
+    @apply md:border-none p-0 bg-transparent rounded-none text-sm;
+  }
+
+  @media (width >= 48rem /* 768px */) {
+    aside {
+      width: clamp(280px, 30vw, 480px);
+      flex-shrink: 0;
+    }
+    aside > div {
+      padding-left: clamp(16px, 2.25vw, 38px) !important; /* Corrected padding-left syntax */
+      padding-right: clamp(16px, 2.2vw, 38px) !important; /* Added padding-right for consistency */
+      padding-top: 32px;
+    }
   }
 }
 
@@ -243,7 +255,7 @@
   transform: rotate(-45deg);
 }
 
-.aside {
+/* .aside {
   overflow: hidden;
   height: var(--nav-height);
 }
@@ -251,7 +263,7 @@
 .aside.open {
   height: 100%;
   min-height: 100dvh;
-}
+} */
 
 .page-max-width {
   max-width: clamp(768px, 78%, 980px);
