@@ -3,8 +3,9 @@
 
 @theme {
   --font-sans: 'Oswald', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
-  --font-serif: 'Newsreader', ui-serif, Georgia, Cambria, 'Times New Roman', Times, serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol',
-    'Noto Color Emoji';
+  --font-serif: 'Newsreader', ui-serif, Georgia, Cambria, 'Times New Roman', Times, serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+  --font-mono: 'Fira Mono', ui-monospace, SFMono-Regular, SF Mono, Consolas, 'Liberation Mono', Menlo, Courier, monospace, 'Apple Color Emoji',
+    'Segoe UI Emoji', 'Segoe UI Symbol';
   --spacing-gutter: clamp(30px, 5vw, 5rem);
   --color-primary: #c11b25;
 }
@@ -13,7 +14,7 @@
   :root {
     --block-hamburger-menu-height-ratio: calc(20px / 4);
     --block-hamburger-menu-line-height: 1px;
-    --font-size--small: .875rem;
+    --font-size--small: 0.875rem;
     --font-size--medium: clamp(1rem, 1rem + ((1vw - 0.2rem) * 0.588), 1.25rem);
     --font-size--large: clamp(1.75rem, 1.75rem + ((1vw - 0.2rem) * 0.588), 2rem);
     --font-size--x-large: clamp(2.5rem, 2.5rem + ((1vw - 0.2rem) * 1.176), 3rem);
@@ -42,7 +43,7 @@
   }
 
   h1 {
-    font-size: var(--font-size--x-large);
+    font-size: clamp(2.5rem, 6vw + 1rem, 5rem);
   }
 
   h2 {
@@ -65,6 +66,26 @@
     font-size: var(--font-size--small);
     font-weight: 600;
   }
+  code, kbd, samp, pre {
+    @apply font-mono;
+    font-size: var(--font-size--small);
+  }
+
+  pre {
+    @apply p-5 bg-red-100;
+  }
+
+  code {
+    @apply bg-red-100 px-2;
+  }
+
+  pre code {
+    @apply block break-words whitespace-pre-wrap;
+  }
+
+  article ul {
+    @apply list-disc pl-5;
+  }
 }
 
 @layer components {
@@ -77,6 +98,12 @@
   .post-categories li a {
     @apply text-blue-500! no-underline!;
   }
+}
+
+html,
+:host,
+body {
+  font-size: var(--font-size--medium);
 }
 
 .hamburger-button {
@@ -131,10 +158,14 @@
 
 .aside {
   overflow: hidden;
-  height: 102px;
-  transition: height 0.5s ease-in;
+  height: var(--nav-height);
 }
 
 .aside.open {
-  height: var(--total-height);
+  height: 100%; 
+  min-height: 100dvh;
+}
+
+.page-max-width {
+  max-width: clamp(768px, 78%, 980px);
 }

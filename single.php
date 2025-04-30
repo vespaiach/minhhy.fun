@@ -1,11 +1,15 @@
-<?php get_header(); ?>
+<?php
+get_header(); 
+get_sidebar(); 
 
-<?php get_sidebar(); ?>
+if (have_posts()): 
+	the_post();
+?>
 
 <main>
 	<article>
 		<header class="bg-stone-100 py-16 font-sans">
-			<div class="px-gutter w-full max-w-[768px] mx-auto space-y-6">
+			<div class="px-gutter w-full page-max-width mx-auto space-y-6">
 				<?php
 				$post_id = get_the_ID();
 				$categories = get_the_category($post_id);
@@ -26,8 +30,8 @@
 				</div>
 			</div>
 		</header>
-		<div class="mt-16 px-gutter w-full max-w-[768px] mx-auto space-y-5"><?php the_content(); ?></div>
-		<div class="mt-16 px-gutter w-full max-w-[768px] mx-auto space-y-3">
+		<div class="mt-16 px-gutter w-full page-max-width mx-auto space-y-5"><?php the_content(); ?></div>
+		<div class="mt-16 px-gutter w-full page-max-width mx-auto space-y-3">
 			<?php
 			$prev_post = get_previous_post();
 			if ($prev_post) {
@@ -53,4 +57,5 @@
 	</article>
 </main>
 
-<?php get_footer(); ?>
+<?php endif; 
+get_footer(); 

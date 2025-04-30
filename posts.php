@@ -7,7 +7,7 @@
 		?>
 		<section>
 			<header class="bg-stone-100 py-16 font-sans">
-				<div class="px-gutter w-full max-w-[768px] mx-auto space-y-6">
+				<div class="px-gutter w-full page-max-width mx-auto space-y-6">
 					<p class="text-sm"><?php echo $category_post_count; ?> Post<?php echo ($category_post_count !== 1) ? 's' : ''; ?></p>
 					<h1 class="font-sans text-4xl text-gray-900">
 						Category: <?php echo $category_name; ?>
@@ -22,7 +22,7 @@
 		require get_template_directory() . '/partial/post-list.php';
 	} else {
 		?>
-		<div class="px-gutter w-full max-w-[768px] mx-auto py-20 space-y-8">
+		<div class="px-gutter w-full page-max-width mx-auto py-20 space-y-8">
 			<h1>Oops! That page can’t be found.</h1>
 			<form role="search" method="get" class="flex flex-col gap-2" action="<?php echo esc_url(home_url('/')); ?>">
 				<label class="screen-reader-text">Maybe try a search?</label>

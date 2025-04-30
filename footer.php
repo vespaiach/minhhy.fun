@@ -15,7 +15,7 @@ endif;
 ?>
 
 <footer class="bg-stone-100 mt-40 py-16 space-y-18">
-	<div class="space-y-12 px-gutter w-full max-w-[768px] mx-auto">
+	<div class="space-y-12 px-gutter w-full page-max-width mx-auto">
 		<?php if (is_single()) { ?>
 			<div>
 				<p class="font-sans text-primary">MORE POSTS</p>
