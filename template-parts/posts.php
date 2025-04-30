@@ -7,7 +7,7 @@ if (!defined('ABSPATH')) {
 <?php
 if (have_posts()):
 	echo '<section class="px-gutter w-full page-max-width mx-auto mt-14">';
-	echo '<ul class="space-y-22">';
+	echo '<ul class="space-y-28">';
 	while (have_posts()):
 		the_post();
 		get_template_part('template-parts/content');

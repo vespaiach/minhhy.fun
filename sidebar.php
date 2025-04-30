@@ -11,12 +11,12 @@ wp_reset_query();
 
 <aside class="bg-primary text-white">
 	<div class="w-full page-max-width mx-auto px-gutter">
-		<div class="flex items-start justify-between">
+		<div class="flex items-start justify-between py-4">
 			<div>
-				<h1 class="font-sans font-bold text-2xl">
-					<a href="/">MINH-HY</a>
+				<h1 class="font-serif m-0! text-content-headings text-3xl md:text-4xl">
+					<a class="block no-underline text-white" href="/">MINH-HY</a>
 				</h1>
-				<small class=""><?php echo esc_html(get_bloginfo('description')); ?></small>
+				<span><?php echo esc_html(get_bloginfo('description')); ?></span>
 			</div>
 			<button class="hamburger-button mt-1.5" id="hamburger-button">
 				<span class="hamburger-line line-1"></span>
@@ -24,35 +24,37 @@ wp_reset_query();
 				<span class="hamburger-line line-3"></span>
 			</button>
 		</div>
-		<div class="hidden">
-			<p class="font-sans text-xl">RECENT POSTS</p>
-			<ul class="mt-3 space-y-1 text-sm">
-				<?php
-				foreach ($recent_posts as $post) {
-					echo '<li><a href="' . esc_url(get_permalink($post['ID'])) . '">' . esc_html($post['post_title']) . '</a></li>';
-				}
-				?>
-			</ul>
-		</div>
-		<div class="hidden">
-			<p class="font-sans text-xl">CATEGORIES</p>
-			<ul class="mt-3 space-y-1 text-sm">
-				<?php
-				foreach ($categories as $category) {
-					echo '<li><a href="' . esc_url(get_category_link($category->term_id)) . '">' . esc_html($category->name) . '</a></li>';
-				}
-				?>
-			</ul>
+		<div class="space-y-12 mt-8 pb-20 hidden" id="sidebar-expansion">
+			<div>
+				<h3 class="m-0! text-white">RECENT POSTS</h3>
+				<ul class="mt-3 space-y-1">
+					<?php
+					foreach ($recent_posts as $post) {
+						echo '<li><a class="text-white" href="' . esc_url(get_permalink($post['ID'])) . '">' . esc_html($post['post_title']) . '</a></li>';
+					}
+					?>
+				</ul>
+			</div>
+			<div>
+			<h3 class="m-0! text-white">CATEGORIES</h3>
+				<ul class="mt-3 space-y-1">
+					<?php
+					foreach ($categories as $category) {
+						echo '<li><a class="text-white" href="' . esc_url(get_category_link($category->term_id)) . '">' . esc_html($category->name) . '</a></li>';
+					}
+					?>
+				</ul>
+			</div>
 		</div>
 	</div>
 </aside>
 <script>
 	document.addEventListener('DOMContentLoaded', function () {
 		const hamburgerButton = document.getElementById('hamburger-button');
-		const aside = document.querySelector('.aside');
+		const aside = document.getElementById('sidebar-expansion');
 		hamburgerButton.addEventListener('click', function () {
 			hamburgerButton.classList.toggle('open');
-			aside.classList.toggle('open');
+			aside.classList.toggle('hidden');
 		});
 	});
 </script>
