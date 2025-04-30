@@ -9,7 +9,7 @@
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400&family=Merriweather:wght@700;900&family=Source+Code+Pro&display=swap"
 					rel="stylesheet">
-		<link rel="stylesheet" href="<?php echo esc_url(get_stylesheet_uri()); ?>" type="text/css">
+		<link rel="stylesheet" href="<?php echo esc_url(get_template_directory_uri() . '/style.33815725dde76f06ca8dd031bc583069.css'); ?>" type="text/css">
 	</head>
 
 	<body>
