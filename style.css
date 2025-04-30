@@ -7,8 +7,8 @@
     --font-serif: 'Merriweather', ui-serif, Georgia, Cambria, 'Times New Roman', Times, serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
     --font-mono: 'Source Code Pro', ui-monospace, SFMono-Regular, SF Mono, Consolas, 'Liberation Mono', Menlo, Courier, monospace, 'Apple Color Emoji',
     'Segoe UI Emoji', 'Segoe UI Symbol';
-    --color-blue-500: oklch(62.3% 0.214 259.815);
-    --color-blue-700: oklch(48.8% 0.243 264.376);
+    --color-red-200: oklch(88.5% 0.062 18.334);
+    --color-red-300: oklch(80.8% 0.114 19.571);
     --color-gray-50: oklch(98.5% 0.002 247.839);
     --color-gray-100: oklch(96.7% 0.003 264.542);
     --color-gray-200: oklch(92.8% 0.006 264.531);
@@ -218,6 +218,9 @@
   .mt-8 {
     margin-top: calc(var(--spacing) * 8);
   }
+  .mt-10 {
+    margin-top: calc(var(--spacing) * 10);
+  }
   .mt-14 {
     margin-top: calc(var(--spacing) * 14);
   }
@@ -368,6 +371,12 @@
   .bg-primary {
     background-color: var(--color-primary);
   }
+  .bg-red-200 {
+    background-color: var(--color-red-200);
+  }
+  .bg-red-300 {
+    background-color: var(--color-red-300);
+  }
   .bg-stone-100 {
     background-color: var(--color-stone-100);
   }
@@ -439,6 +448,9 @@
   }
   .text-\[inherit\] {
     color: inherit;
+  }
+  .text-body\! {
+    color: var(--color-body) !important;
   }
   .text-gray-400 {
     color: var(--color-gray-400);

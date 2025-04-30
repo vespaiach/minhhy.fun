@@ -24,7 +24,18 @@ wp_reset_query();
 				<span class="hamburger-line line-3"></span>
 			</button>
 		</div>
-		<div class="space-y-16 mt-8 pb-20 hidden" id="sidebar-expansion">
+
+		<div class="space-y-18 mt-10 pb-20 hidden" id="sidebar-expansion">
+			<div>
+				<form role="search" method="get" class="flex flex-col gap-1" action="<?php echo esc_url(home_url('/')); ?>">
+					<label for="<?= $search_input_id; ?>">Search Posts</label>
+					<div class="flex gap-2">
+						<input type="search" id="<?= $search_input_id; ?>" class="flex-1 border border-stone-400 p-4 bg-white" placeholder="Search..."
+									 value="<?php echo get_search_query(); ?>" name="s" />
+						<button type="submit" class="text-body! bg-red-200 py-4 px-6 shrink-0 cursor-pointer">Search</button>
+					</div>
+				</form>
+			</div>
 			<div>
 				<h3 class="m-0! text-white">RECENT POSTS</h3>
 				<ul class="mt-3 space-y-2 list-none! pl-0!">
@@ -36,7 +47,7 @@ wp_reset_query();
 				</ul>
 			</div>
 			<div>
-			<h3 class="m-0! text-white">CATEGORIES</h3>
+				<h3 class="m-0! text-white">CATEGORIES</h3>
 				<ul class="mt-3 space-y-2 list-none! pl-0!">
 					<?php
 					foreach ($categories as $category) {
