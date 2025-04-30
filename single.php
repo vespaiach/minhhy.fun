@@ -53,9 +53,19 @@ if (have_posts()):
 				<?php
 			}
 			?>
+			<a href="#top" class="flex gap-1 items-center" id="go-to-top">⇡ Top: Go Back to Top</a>
 		</div>
 	</article>
 </main>
+<script>
+	document.addEventListener('DOMContentLoaded', function () {
+		const topLink = document.getElementById('go-to-top');
+		topLink.addEventListener('click', function (event) {
+			event.preventDefault();
+			window.scrollTo({ top: 0, behavior: 'smooth' });
+		});
+	});
+</script>
 
 <?php endif; 
 get_footer(); 
