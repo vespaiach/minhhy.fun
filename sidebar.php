@@ -24,20 +24,20 @@ wp_reset_query();
 				<span class="hamburger-line line-3"></span>
 			</button>
 		</div>
-		<div class="space-y-12 mt-8 pb-20 hidden" id="sidebar-expansion">
+		<div class="space-y-16 mt-8 pb-20 hidden" id="sidebar-expansion">
 			<div>
 				<h3 class="m-0! text-white">RECENT POSTS</h3>
-				<ul class="mt-3 space-y-1">
+				<ul class="mt-3 space-y-2 list-none! pl-0!">
 					<?php
 					foreach ($recent_posts as $post) {
-						echo '<li><a class="text-white" href="' . esc_url(get_permalink($post['ID'])) . '">' . esc_html($post['post_title']) . '</a></li>';
+						echo '<li><a class="text-white leading-[0.8]!" href="' . esc_url(get_permalink($post['ID'])) . '">' . esc_html($post['post_title']) . '</a></li>';
 					}
 					?>
 				</ul>
 			</div>
 			<div>
 			<h3 class="m-0! text-white">CATEGORIES</h3>
-				<ul class="mt-3 space-y-1">
+				<ul class="mt-3 space-y-2 list-none! pl-0!">
 					<?php
 					foreach ($categories as $category) {
 						echo '<li><a class="text-white" href="' . esc_url(get_category_link($category->term_id)) . '">' . esc_html($category->name) . '</a></li>';
