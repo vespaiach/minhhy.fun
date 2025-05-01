@@ -1,47 +1,22 @@
 <?php
-if (!isset($recent_posts)):
-	$recent_posts = wp_get_recent_posts(array(
-		'numberposts' => 5,
-		'post_status' => 'publish',
-		'orderby' => 'post_date',
-		'order' => 'DESC',
-	));
-	wp_reset_query();
-endif;
-
-if (!isset($categories)):
-	$categories = get_categories(array('hide_empty' => true));
-endif;
+$recent_posts = get_query_var('recent_posts') ?: [];
+$all_categories = get_query_var('all_categories') ?: [];
 ?>
 
 <footer class="bg-stone-100 mt-48 py-16 space-y-18">
 	<div class="space-y-12 px-gutter w-full page-max-width mx-auto">
-		<?php if (is_single()) { ?>
+		<?php if (is_single()): ?>
 			<div>
-				<h3>MORE POSTS</h3>
-				<ul class="mt-4 space-y-5 list-none! pl-0!">
-					<?php
-					foreach ($recent_posts as $post) { ?>
-						<li class="flex flex-col pb-4 <?php echo ($post === end($recent_posts)) ? '' : 'border-b border-b-gray-200'; ?>">
-							<a href="<?php echo esc_url(get_permalink($post['ID'])) ?>"><?php echo esc_html($post['post_title']) ?></a>
-							<time class="text-xs text-gray-400"
-										datetime="<?php echo get_the_date('c', $post['ID']); ?>"><?php echo get_the_date('M t, Y', $post['ID']); ?></time>
-						</li>
-					<?php } ?>
-				</ul>
+				<h3>RECENT POSTS</h3>
+				<?php render_recent_posts(); ?>
 			</div>
-		<?php } ?>
+		<?php endif; ?>
+
 		<div>
 			<h3>CATEGORIES</h3>
-			<ul class="mt-4 space-y-2 list-none! pl-0!">
-				<?php
-				foreach ($categories as $category) { ?>
-					<li>
-						<a href="<?php echo esc_url(get_category_link($category->term_id)); ?>"><?php echo esc_html($category->name); ?></a>
-					</li>
-				<?php } ?>
-			</ul>
+			<?php render_all_categories(); ?>
 		</div>
+
 		<div>
 			<h3>ABOUT</h3>
 			<ul class="mt-4 space-y-2 list-none! pl-0!">

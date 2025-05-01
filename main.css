@@ -27,7 +27,7 @@ Author URI: https://vespaiach.com
   --text-5xl: clamp(2rem, 1.5rem + 2.5vw, 3.75rem); /* h1 */
   --text-5xl--line-height: 1.1;
 
-  --spacing-gutter: clamp(30px, 5vw, 5rem);
+  --spacing-gutter: clamp(20px, 5vw, 5rem);
 
   --color-primary: #c11b25;
   --color-primary-dark: #a0151e; /* A slightly darker shade for hover effects */
@@ -197,15 +197,14 @@ Author URI: https://vespaiach.com
     @apply md:border-none p-0 bg-transparent rounded-none text-sm;
   }
 
-  @media (width >= 48rem /* 768px */) {
+  @media (width >= 64rem /* 1024px */) {
     aside {
-      width: clamp(280px, 30vw, 480px);
+      width: clamp(280px, 28vw, 420px);
       flex-shrink: 0;
     }
     aside > div {
       padding-left: clamp(16px, 2.25vw, 38px) !important; /* Corrected padding-left syntax */
       padding-right: clamp(16px, 2.2vw, 38px) !important; /* Added padding-right for consistency */
-      padding-top: 32px;
     }
   }
 }
@@ -259,16 +258,6 @@ Author URI: https://vespaiach.com
   top: calc(var(--block-hamburger-menu-height-ratio) * 2 - var(--block-hamburger-menu-line-height));
   transform: rotate(-45deg);
 }
-
-/* .aside {
-  overflow: hidden;
-  height: var(--nav-height);
-}
-
-.aside.open {
-  height: 100%;
-  min-height: 100dvh;
-} */
 
 .page-max-width {
   max-width: clamp(768px, 78%, 980px);
