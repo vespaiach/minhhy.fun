@@ -19,6 +19,7 @@ if ( have_posts() ) :
 	$tags            = wp_get_post_tags( $post_id );
 	$seo_description = get_post_meta( $post_id, 'seo_desc', true );
 	$categories      = get_the_category( $post_id );
+	$error           = get_query_var( 'form_error', '' );
 
 	get_header();
 	?>
@@ -29,9 +30,30 @@ if ( have_posts() ) :
 
 		<main class="flex-1">
 			<div class="px-gutter w-full page-max-width mx-auto">
+
 				<div class="pt-16 pb-6 lg:pt-18 lg:pb-10">
 					<h1><?php the_title(); ?></h1>
 				</div>
+				<?php if ( $error ) : ?>
+					<p class="text-primary my-5">
+						<?php
+						switch ( $error ) {
+							case 'required_fields':
+								echo '* Please fill out all required fields.';
+								break;
+							case 'invalid_email':
+								echo '* Please provide a valid email address.';
+								break;
+							case 'captcha_failed':
+								echo '* CAPTCHA verification failed. Please try again.';
+								break;
+							case 'captcha_missing':
+								echo '* CAPTCHA token is missing. Please try again.';
+								break;
+						}
+						?>
+					</p>
+				<?php endif; ?>
 				<form action="<?php echo esc_url( admin_url( 'admin-post.php' ) ); ?>" id="contact-form" method="post" class="space-y-5">
 					<input type="hidden" name="action" value="submit_contact_form">
 					<input type="hidden" id="recaptcha-token" name="recaptcha_token">
@@ -56,8 +78,8 @@ if ( have_posts() ) :
 						<textarea id="message" name="message" rows="5" required></textarea>
 					</div>
 
-					<button type="submit" data-sitekey="recaptcha_client_eky" data-callback='onSubmit' data-action='submit'
-									class="g-recaptcha p-4 bg-primary rounded text-white">Send Message</button>
+					<button type="submit" data-sitekey="6Lf3ACsrAAAAAO3ru3wrv3aNBXCHNSTi9-wtC_4A" data-callback='onSubmit'
+									data-action='submit' class="g-recaptcha p-4 bg-primary rounded text-white">Send Message</button>
 				</form>
 			</div>
 			<?= get_footer(); ?>
@@ -76,19 +98,12 @@ if ( have_posts() ) :
 	}
 	function validateForm() {
 		let isValid = true;
-		const name = document.getElementById('your-name').value.trim();
 		const email = document.getElementById('your-email').value.trim();
 		const subject = document.getElementById('subject').value.trim();
 		const message = document.getElementById('message').value.trim();
 
 		// Clear previous error messages
 		document.querySelectorAll('.error-message').forEach(el => el.remove());
-
-		// Validate Name
-		if (name === '') {
-			showError('your-name', 'Name is required.');
-			isValid = false;
-		}
 
 		// Validate Email
 		if (email === '') {

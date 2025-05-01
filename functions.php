@@ -5,6 +5,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 require_once get_template_directory() . '/helpers.php';
 
+function custom_register_query_vars($vars) {
+	$vars[] = 'form_error';
+	return $vars;
+}
+add_filter('query_vars', 'custom_register_query_vars');
+
 add_action( 'after_setup_theme', 'minhhy_theme_setup' );
 function minhhy_theme_setup() {
 	add_theme_support( 'title-tag' );
@@ -17,21 +23,22 @@ add_filter( 'excerpt_more', function () {
 	return '';
 } );
 
-function restrict_search_to_post_type($query) {
-	if ($query->is_search && !is_admin() && $query->is_main_query()) {
-			$query->set('post_type', 'post'); // Replace 'post' with your desired post type
+function restrict_search_to_post_type( $query ) {
+	if ( $query->is_search && ! is_admin() && $query->is_main_query() ) {
+		$query->set( 'post_type', 'post' ); // Replace 'post' with your desired post type
 	}
 }
-add_action('pre_get_posts', 'restrict_search_to_post_type');
-
+add_action( 'pre_get_posts', 'restrict_search_to_post_type' );
 
 function handle_contact_form_submission() {
 	// Validate required fields
 	if ( empty( $_POST['your_email'] ) || empty( $_POST['your_name'] ) || empty( $_POST['message'] ) ) {
-		wp_die( 'Your Name, Email, and Message are required fields. Please fill them out and try again.' );
+		wp_redirect( home_url( '/contact/?form_error=required_fields' ) );
+		exit;
 	}
 	if ( ! is_email( $_POST['your_email'] ) ) {
-		wp_die( 'Invalid email address. Please provide a valid email.' );
+		wp_redirect( home_url( '/contact/?form_error=invalid_email' ) );
+		exit;
 	}
 
 	if ( isset( $_POST['recaptcha_token'] ) ) {
@@ -50,10 +57,12 @@ function handle_contact_form_submission() {
 		$result        = json_decode( $response_body, true );
 
 		if ( ! $result['success'] || $result['score'] < 0.5 ) {
-			wp_die( 'reCAPTCHA verification failed. Please try again.' );
+			wp_redirect( home_url( '/contact/?form_error=captcha_failed' ) );
+			exit;
 		}
 	} else {
-		wp_die( 'reCAPTCHA token is missing.' );
+		wp_redirect( home_url( '/contact/?form_error=captcha_missing' ) );
+		exit;
 	}
 
 	// Process the form (e.g., send email)
