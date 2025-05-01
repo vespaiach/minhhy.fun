@@ -90,6 +90,10 @@ Author URI: https://vespaiach.com
     @apply mb-6 leading-relaxed;
   }
 
+  figure {
+    @apply my-8;
+  }
+
   a {
     @apply text-primary transition-colors duration-200 ease-in-out hover:text-primary-dark focus:text-primary-dark;
   }
@@ -160,7 +164,7 @@ Author URI: https://vespaiach.com
   input[type='number'],
   input[type='tel'],
   textarea {
-    @apply border border-border-subtle text-body;
+    @apply border border-border-subtle text-body p-2 rounded;
   }
   input:focus,
   textarea:focus {
