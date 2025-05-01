@@ -91,3 +91,6 @@ if (have_posts()):
 
 	</div>
 <?php endif; ?>
+
+</body>
+</html>

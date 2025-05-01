@@ -71,6 +71,3 @@ $all_categories = get_query_var( 'all_categories' ) ?: [];
 		</div>
 	</div>
 </footer>
-</body>
-
-</html>

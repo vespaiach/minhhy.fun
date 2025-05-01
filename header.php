@@ -22,7 +22,7 @@ if ( ! isset( $tags ) ) {
 		<meta name="theme-color" content="#ffffff">
 		<meta name="robots" content="index, follow">
 		<?php if ( is_single() ) : ?>
-			<meta name="og:url" content="<?php echo esc_url( get_permalink() ); ?>">
+			<link rel="canonical" href="<?php echo esc_url( get_permalink() ); ?>" />
 			<meta name="og:title" content="<?php the_title(); ?>">
 			<meta name="og:description" content="<?= $seo_description ?>">
 			<meta name="og:image" content="<?php echo esc_url( get_the_post_thumbnail_url() ); ?>">

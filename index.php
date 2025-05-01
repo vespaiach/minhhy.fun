@@ -5,3 +5,6 @@ echo '<main>';
 get_template_part('template-parts/posts');
 echo '</main>';
 get_footer();
+?>
+</body>
+</html>

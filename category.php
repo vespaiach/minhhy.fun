@@ -35,3 +35,5 @@ $category_description = category_description( $category->term_id );
 		<?php get_footer(); ?>
 	</main>
 </div>
+</body>
+</html>
