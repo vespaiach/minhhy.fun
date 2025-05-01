@@ -36,6 +36,14 @@ if ( ! isset( $tags ) ) {
 		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400&family=Merriweather:wght@700;900&family=Source+Code+Pro&display=swap"
 					rel="stylesheet">
 		<link rel="stylesheet" href="<?php echo esc_url( get_template_directory_uri() . '/style.css' ); ?>" type="text/css">
+		<!-- Google tag (gtag.js) -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=G-WBB9QNJRZN"></script>
+		<script>
+			window.dataLayer = window.dataLayer || [];
+			function gtag() { dataLayer.push(arguments); }
+			gtag('js', new Date());
+			gtag('config', 'G-WBB9QNJRZN');
+		</script>
 	</head>
 
 	<body>
