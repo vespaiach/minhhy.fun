@@ -264,5 +264,20 @@ Author URI: https://vespaiach.com
 }
 
 .page-max-width {
-  max-width: clamp(768px, 78%, 980px);
+  max-width: clamp(768px, 88%, 880px);
+}
+
+@media (width >= 64rem /* 1024px */) {
+  .page-max-width {
+    max-width: 720px;
+  }
+}
+
+@media (width >= 80rem /* 1280px */) {
+  :root{
+    --spacing-gutter: 20px;
+  }
+  .page-max-width {
+    max-width: 820px;
+  }
 }

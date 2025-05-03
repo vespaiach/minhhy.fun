@@ -19,7 +19,7 @@ $category_description = category_description( $category->term_id );
 ?>
 <div class="flex flex-col lg:flex-row">
 	<?php get_sidebar(); ?>
-	<main>
+	<main class="flex-1">
 		<section class="mb-18">
 			<header class="bg-stone-100 py-16">
 				<div class="px-gutter w-full page-max-width mx-auto space-y-6">

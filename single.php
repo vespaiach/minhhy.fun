@@ -24,7 +24,7 @@ if (have_posts()):
 
 		<?php get_sidebar(); ?>
 
-		<main>
+		<main class="flex-1">
 			<article>
 				<header class="bg-stone-100">
 					<div class="px-gutter w-full page-max-width mx-auto">
