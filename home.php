@@ -13,9 +13,9 @@ set_query_var('all_categories', $all_categories);
 get_header();
 ?>
 
-<div class="flex flex-col gap-20 lg:flex-row lg:gap-0">
+<div class="view-port">
 	<?php get_sidebar(); ?>
-	<main class="lg:mt-18 flex-1">
+	<main class="flex-1 pt-10 xl:pt-18">
 		<?php get_template_part('template-parts/posts'); ?>
 		<?php get_footer(); ?>
 	</main>

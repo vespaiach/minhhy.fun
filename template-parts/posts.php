@@ -6,7 +6,7 @@ if (!defined('ABSPATH')) {
 
 <?php
 if (have_posts()):
-	echo '<section class="px-gutter w-full page-max-width mx-auto">';
+	echo '<section class="page">';
 	echo '<ul class="space-y-20 md:space-y-28 list-none! pl-0!">';
 	while (have_posts()):
 		the_post();
