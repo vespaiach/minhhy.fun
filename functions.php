@@ -78,7 +78,7 @@ function handle_contact_form_submission() {
 		wp_mail( $to, $subject, $message, $headers );
 
 		// Redirect after submission
-		wp_redirect( home_url( '/thank-you/?name=' . urlencode( $_POST['your_name'] ) ) );
+		wp_redirect( home_url( '/thank-you/') );
 		exit;
 	}
 }
