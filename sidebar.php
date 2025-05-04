@@ -4,8 +4,8 @@ $all_categories  = get_query_var( 'all_categories' );
 $search_input_id = 'search-input' . uniqid();
 ?>
 
-<aside class="bg-primary text-white">
-	<div class="w-full page-max-width mx-auto px-gutter">
+<aside>
+	<div class="page">
 		<div class="flex items-start justify-between py-4">
 			<div>
 				<h1 class="font-serif m-0! text-2xl leading-[1]! font-bold">
@@ -20,13 +20,13 @@ $search_input_id = 'search-input' . uniqid();
 			</button>
 		</div>
 
-		<div class="space-y-18 mt-8 pb-20 hidden lg:block" id="sidebar-expansion">
+		<div class="space-y-18 mt-8 pb-20 hidden xl:block" id="sidebar-expansion">
 			<form role="search" method="get" class="flex flex-col space-y-2" action="<?php echo esc_url( home_url( '/' ) ); ?>">
 				<label for="<?= $search_input_id; ?>" class="font-serif text-xl">SEARCH POSTS</label>
-				<div class="flex gap-2 flex-wrap xl:flex-nowrap">
+				<div class="flex gap-1 flex-wrap xl:flex-nowrap">
 					<input type="search" id="<?= $search_input_id; ?>" class="flex-1 border border-stone-400 p-2.5 bg-white rounded"
 								 placeholder="Search..." value="<?php echo get_search_query(); ?>" name="s" />
-					<button type="submit" class="bg-red-100 text-body px-3!">Search</button>
+					<button type="submit" class="bg-red-100 text-body px-3! xl:hidden">Search</button>
 				</div>
 			</form>
 

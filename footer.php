@@ -4,7 +4,7 @@ $all_categories = get_query_var( 'all_categories' ) ?: [];
 ?>
 
 <footer class="bg-stone-100 mt-48 py-16 space-y-18">
-	<div class="space-y-12 px-gutter w-full page-max-width mx-auto">
+	<div class="space-y-12 page">
 		<?php if ( is_single() ) : ?>
 			<div>
 				<h3>RECENT POSTS</h3>
