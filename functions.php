@@ -43,7 +43,7 @@ function handle_contact_form_submission() {
 
 	if ( isset( $_POST['recaptcha_token'] ) ) {
 		$recaptcha_token = sanitize_text_field( $_POST['recaptcha_token'] );
-		$secret_key      = '6Lf3ACsrAAAAACZ5w5za6tXzl8RDeEf8AKJEVVPW'; // Replace with your Secret Key
+		$secret_key      = '___'; // Replace with your Secret Key
 
 		// Verify reCAPTCHA response
 		$response = wp_remote_post( 'https://www.google.com/recaptcha/api/siteverify', array(
