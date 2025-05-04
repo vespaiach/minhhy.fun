@@ -20,14 +20,14 @@ if ( have_posts() ) :
 	get_header();
 	?>
 
-	<div class="flex flex-col lg:flex-row">
+	<div class="view-port">
 
 		<?php get_sidebar(); ?>
 
 		<main class="flex-1">
 			<article>
 				<header class="bg-stone-100">
-					<div class="px-gutter w-full page-max-width mx-auto">
+					<div class="page">
 						<div class="py-20 space-y-6">
 							<?php
 							if ( ! empty( $categories ) ) {

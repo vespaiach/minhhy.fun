@@ -12,12 +12,12 @@ set_query_var( 'all_categories', $all_categories );
 get_header();
 ?>
 
-<div class="flex flex-col lg:flex-row">
+<div class="view-port">
 
 	<?php get_sidebar(); ?>
 
 	<main class="flex-1">
-		<section class="px-gutter py-22 w-full page-max-width mx-auto">
+		<section class="py-22 page">
 			<h1 class="mb-8">Oops! That page can’t be found.</h1>
 			<?= get_search_form(); ?>
 		</section>

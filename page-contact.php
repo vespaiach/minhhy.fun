@@ -78,7 +78,7 @@ if ( have_posts() ) :
 						<textarea id="message" name="message" rows="5" required></textarea>
 					</div>
 
-					<button type="submit" data-sitekey="6Lf3ACsrAAAAAO3ru3wrv3aNBXCHNSTi9-wtC_4A" data-callback='onSubmit'
+					<button type="submit" data-sitekey="<?= defined( 'RECAPTCHA_CLIENT_KEY' ) ? RECAPTCHA_CLIENT_KEY : '___' ?>" data-callback='onSubmit'
 									data-action='submit' class="g-recaptcha p-4 bg-primary rounded text-white">Send Message</button>
 				</form>
 			</div>
