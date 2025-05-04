@@ -4,7 +4,6 @@ Author: Trinh Nguyen
 Author URI: https://vespaiach.com
 */
 @import 'tailwindcss';
-@plugin "@tailwindcss/typography";
 
 @theme {
   --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
@@ -262,4 +261,20 @@ Author URI: https://vespaiach.com
 .hamburger-button.open .line-3 {
   top: calc(var(--block-hamburger-menu-height-ratio) * 2 - var(--block-hamburger-menu-line-height));
   transform: rotate(-45deg);
+}
+
+.su-cell {
+  @apply w-9 h-9 lg:w-11 lg:h-11 xl:w-12 xl:h-12 bg-white leading-[1]! text-stone-500 align-middle text-center font-semibold;
+}
+
+.su-cell[data-prefilled] {
+  @apply bg-stone-100;
+}
+
+.done {
+  @apply bg-primary text-white leading-[1]! px-6 cursor-pointer;
+}
+
+.done:disabled {
+  @apply bg-stone-300 cursor-not-allowed;
 }
