@@ -5,6 +5,8 @@ if ( ! isset( $seo_description ) ) {
 if ( ! isset( $tags ) ) {
 	$tags = [];
 }
+
+
 ?>
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
@@ -35,14 +37,14 @@ if ( ! isset( $tags ) ) {
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400&family=Merriweather:wght@700;900&family=Source+Code+Pro&display=swap"
 					rel="stylesheet">
-		<link rel="stylesheet" href="<?php echo esc_url( get_template_directory_uri() . '/style.css' ); ?>" type="text/css">
+		<link rel="stylesheet" href="<?php echo esc_url( get_template_directory_uri() . '/style.e38935db759da9fdea985fae0e6ebbad.css' ); ?>" type="text/css">
 		<!-- Google tag (gtag.js) -->
-		<script async src="https://www.googletagmanager.com/gtag/js?id=G-WBB9QNJRZN"></script>
+		<script async src="https://www.googletagmanager.com/gtag/js?id=<?= defined( 'GOOGLE_TAG_MANAGER_KEY' ) ? GOOGLE_TAG_MANAGER_KEY : ''; ?>"></script>
 		<script>
 			window.dataLayer = window.dataLayer || [];
 			function gtag() { dataLayer.push(arguments); }
 			gtag('js', new Date());
-			gtag('config', 'G-WBB9QNJRZN');
+			gtag('config', '<?= defined( 'GOOGLE_TAG_MANAGER_KEY' ) ? GOOGLE_TAG_MANAGER_KEY : ''; ?>');
 		</script>
 	</head>
 
